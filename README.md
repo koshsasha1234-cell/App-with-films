@@ -25,10 +25,10 @@ C++17 или новее
 CMake 3.16+
 QTcreator 18.0.2
 Сборка
-
+```bash
 git clone <repo>
 cd <repo>
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --config Release
-
+```
