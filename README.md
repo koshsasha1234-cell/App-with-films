@@ -18,7 +18,30 @@
 Стек приложения :
 C++ и QTcreator
 
-Сборка проекта:
-1. Создаем новый проект в QTcretor
-2. Загружаем в него файлы проекта
-3. Нажимаем на кнопку для сборки и запуска приложения
+Сборка и запуск
+Требования
+
+C++17 или новее
+CMake 3.16+
+OpenCV с модулем dnn (рекомендуется OpenCV >= 4.7)
+Компилятор: MSVC / clang / gcc
+(Опционально) CUDA и сборка OpenCV с CUDA для ускорения
+Сборка
+
+git clone <repo>
+cd <repo>
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . --config Release
+Запуск
+
+# пример
+./in_place_monitor --model path/to/yolov8n.onnx --cam 0 --conf 0.7 --nms 0.5 --frames-trigger 3
+Параметры командной строки:
+
+--model — путь к ONNX модели (обязательно)
+--cam — индекс веб‑камеры или путь к видеофайлу
+--conf — confidence threshold (по умолчанию 0.7)
+--nms — nmsThreshold (по умолчанию 0.5)
+--frames-trigger — число кадров для стабилизации состояния
+--warning-first / --warning-second — интервалы предупреждений (в секундах)
